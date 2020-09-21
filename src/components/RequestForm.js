@@ -1,24 +1,35 @@
 import React from 'react'
 
 class RequestForm extends React.Component {
-  render() {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: '',
+            email: '',
+            tel: '',
+            comment: ''
+        };
+        this.handleSendClick = this.handleSendClick.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+    render() {
     return(
         <div className="requestContact">
             <h1></h1>
             <form>
                 <label>Your name</label>
-                <input type="text" placeholder="Please introduce yourself"></input>
+                <input type="text" placeholder="Please introduce yourself" name="name" onChange={this.handleInputChange}  value={this.state.name}></input>
 
                 <label>Email</label>
-                <input type="text" placeholder="ivanov@mail.ru"></input>
+                <input type="email" placeholder="ivanov@mail.ru" name="email" onChange={this.handleInputChange} value={this.state.email}></input>
 
                 <label>Phone number</label>
-                <input type="text" placeholder="+7 (999) 123-45-78"></input>
+                <input type="tel" placeholder="+7 (999) 123-45-78" name="tel" onChange={this.handleInputChange} value={this.state.tel}></input>
 
                 <label>Comment</label>
-                <input type="text" placeholder="Message text"></input>
-                
-                <button>Send</button>
+                <input type="text" placeholder="Message text" name="comment" onChange={this.handleInputChange} value={this.state.comment}></input>
+
+                <button onClick={this.handleSendClick}>Send</button>
             </form>
             <div className="contactInfo">
                 <p>We will advise you and help you start a new project</p>
@@ -31,8 +42,17 @@ class RequestForm extends React.Component {
                 <p>How to get there?</p>
             </div>
         </div>
-    )
-  }
+    )}
+
+    handleInputChange(event){
+        this.setState({ [event.target.name]: event.target.value });
+    }
+    handleSendClick(event){
+        alert(`name: ${this.state.name}\n`+
+            `email: ${this.state.email}\n`+
+            `tel: ${this.state.tel}\n`+
+            `comment: ${this.state.comment}\n`);
+    }
 }
 
 export default RequestForm
