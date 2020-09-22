@@ -28,7 +28,7 @@ class FilterBlock extends React.Component {
                 <input type="text" placeholder="Unspecified" value={this.state.position} onChange={this.handlePositionChange} onKeyPress={this.handleKeyPress}></input>
             </div>,
             <div className="elem" key="clear">
-                <button id="clear-btn" onClick={this.handleClearClick}>
+                <button id="clear-btn" onClick={this.handleClearClick} className="lightBtn">
                     Clear sorting
                     <img></img>
                 </button>

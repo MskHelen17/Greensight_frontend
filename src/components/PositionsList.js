@@ -67,12 +67,10 @@ class PositionsList extends React.Component {
             return <div>Loading...</div>
         else
             return (
-                <div>
-                    <ul>{this.state.filteredList.map((position, index) =>
-                        <li key={index}>
-                            <Position position={position} index={index} showIndex={this.state.showIndex}/>
-                        </li>
-                    )}</ul>
+                <div className="positionsList">
+                    {this.state.filteredList.map((position, index) =>
+                            <Position key={index} position={position} index={index} showIndex={this.state.showIndex}/>
+                    )}
                 <button onClick={this.handleShowMoreClick}>Show more</button>
                 </div>
             )

@@ -15,7 +15,7 @@ class RequestForm extends React.Component {
     render() {
     return(
         <div className="requestContact">
-            <h1></h1>
+            <h1>Leave a request</h1>
             <form>
                 <label>Your name</label>
                 <input type="text" placeholder="Please introduce yourself" name="name" onChange={this.handleInputChange}  value={this.state.name}></input>
@@ -30,9 +30,11 @@ class RequestForm extends React.Component {
                 <input type="text" placeholder="Message text" name="comment" onChange={this.handleInputChange} value={this.state.comment}></input>
 
                 <button onClick={this.handleSendClick}>Send</button>
+                <p className="sendInfo">By clicking "Send" you confirm your consent to the
+                <div><u className="dotted">processing of personal data</u></div></p>
             </form>
             <div className="contactInfo">
-                <p>We will advise you and help you start a new project</p>
+                <h4>We will advise you and help you start a new project</h4>
                 <h2>+7 499 391-66-69</h2>
                 <h2>mail@greensight.ru</h2>
                 <div className="adress">
