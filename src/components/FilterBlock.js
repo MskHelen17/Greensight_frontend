@@ -13,27 +13,29 @@ class FilterBlock extends React.Component {
         this.handleClearClick = this.handleClearClick.bind(this);
     }
     render() {
-        return ([
-            <div className="elem" key="form">
-                <label>Form</label>
-                <select value={this.state.type} onChange={this.handleTypeChange}>
-                    <option value="not selected" disabled defaultValue hidden>Not selected</option>
-                    <option value="Full time">Full time</option>
-                    <option value="Half time">Half time</option>
-                    <option value="Part time">Part time</option>
-                </select>
-            </div>,
-            <div className="elem" key="position">
-                <label>Position</label>
-                <input type="text" placeholder="Unspecified" value={this.state.position} onChange={this.handlePositionChange} onKeyPress={this.handleKeyPress}></input>
-            </div>,
-            <div className="elem" key="clear">
-                <button id="clear-btn" onClick={this.handleClearClick} className="lightBtn">
-                    Clear sorting
-                    <img></img>
-                </button>
+        return (
+            <div className="filterBlock">
+                <div className="selectType">
+                    <label>Form</label>
+                    <select value={this.state.type} onChange={this.handleTypeChange}>
+                        <option value="not selected" disabled defaultValue hidden>Not selected</option>
+                        <option value="Full time">Full time</option>
+                        <option value="Half time">Half time</option>
+                        <option value="Part time">Part time</option>
+                    </select>
+                </div>
+                <div className="selectPosition">
+                    <label>Position</label>
+                    <input type="text" placeholder="Unspecified" value={this.state.position} onChange={this.handlePositionChange} onKeyPress={this.handleKeyPress}></input>
+                </div>
+                <div className="clearType">
+                    <button id="clear-btn" onClick={this.handleClearClick} className="lightBtn">
+                        Clear sorting
+                        <img></img>
+                    </button>
+                </div>
             </div>
-        ])
+        )
     }
 
     handleTypeChange(event) {

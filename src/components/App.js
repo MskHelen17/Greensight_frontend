@@ -18,9 +18,10 @@ class App extends React.Component {
     render() {
         return (
             <div className="page">
-                <h1>List of vacancies</h1>
+                <h1 className="title">List of vacancies</h1>
                 <FilterBlock onPositionChange={this.handlePositionChanged} onTypeChange={this.handleTypeChanged}/>
                 <PositionsList description={this.state.description} type={this.state.type}/>
+                <h1 className="title">Leave a request</h1>
                 <RequestForm />
             </div>
         )
