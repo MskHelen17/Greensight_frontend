@@ -1,6 +1,6 @@
 :root{
   box-sizing: border-box;  //размеры эл. учитывают padding и border
-  font-size: calc(16px);  //адаптивный шрифт
+  font-size: calcFluidFontSize(16, 17, 1440, 1920);    //адаптивный шрифт (формула задается уравнением прямой через 2 точки)
 }
 
 *,
@@ -9,35 +9,22 @@
   box-sizing: inherit;  //чтобы не было конфликтов с библиотеками
 }
 
-/*Clearfix - чтобы плавающие блоки занимали место в родительских*/
-@mixin clearfix {
-  &::before,&::after{
-    content:" ";
-    display: table;
-  }
-  &::after{
-    clear: both;
-  }
-}
-%clearfix{
-  @include clearfix ;
-}
-.clearfix{
-  @extend %clearfix;
+#root{
+    margin: 0 auto;
+    padding:0;
+    width:83%;
+    max-width: 1440px;
 }
 
 body {
     margin: 0;
     padding: 0;
+    padding-bottom: 5em;
     font-family: 'Rubik', Helvetica, Arial, sans-serif;
     color: #000;
-    select:invalid {
-        color: #A3A6A9;
-    }
     select {
         option[value="not selected"][disabled] {
             display: none;
-            color: #A3A6A9;
         }
     }
     label{
@@ -93,13 +80,6 @@ body {
     }
 }
 
-#root{
-    margin: 0 8.5%;
-    padding:0;
-    width:83%;
-    max-width: 1440px;
-}
-
 .title{
     margin-bottom: 4.625rem;
 }
@@ -111,6 +91,13 @@ body {
     margin-bottom: 2rem;
     button{
         float:right;
+        height:2.25rem;
+        img{
+            margin-left: 0.75rem;
+        }
+    }
+    .clearType{
+        padding-top:calc(1.15rem + 0.8rem);
     }
 }
 
@@ -123,7 +110,7 @@ body {
     display: grid;
     grid-template-columns: 13fr 24fr;
     grid-gap: 7.8%;
-    padding: 1.25rem 1.6%;
+    padding: 1.25rem;
     margin-bottom: 1.5rem;
     border: solid 1px #000;
     margin-bottom: 1.5rem;
@@ -144,7 +131,7 @@ body {
         position: relative;
         margin-bottom:1.5em;
         h2,p{
-            margin:0.3em;
+            margin:0.3em 0;
         }
         button{
             position: absolute;
@@ -186,7 +173,8 @@ body {
             margin-top:1.25rem;
             margin-bottom:3.56rem;
             margin-top:0;
-            height: 6rem;
+            max-height: 6rem;
+            max-width: 100%;
             display: block;
         }
         p{
@@ -198,7 +186,7 @@ body {
             margin:0;
         }
         p+p{
-            margin-top: 1em;
+            margin-top: 1rem;
         }
     }
 }
@@ -214,7 +202,18 @@ body {
         }
     }
     input{
+        padding-left: 0.5em;
         margin-bottom:2rem;
+    }
+    input+p{
+        color: #fc4a4a;
+        margin-top: 0.3em;
+        margin-bottom:2rem;
+    }
+    .invalid{
+        margin-bottom:0;
+        border-radius: 5px;
+        border: solid 1px #fc4a4a;
     }
     button{
         margin:0;

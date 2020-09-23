@@ -1,0 +1,25 @@
+@function calcFluidFontSize($f-min, $f-max, $v-min, $v-max) {
+  $k: ($f-max - $f-min)/($v-max - $v-min);
+  $b: $f-min - $k * $v-min;
+
+  $b: $b * 1px;
+
+  @return calc( #{$k} * 100vw + #{$b} );
+}
+
+/*Clearfix - чтобы плавающие блоки занимали место в родительских*/
+@mixin clearfix {
+  &::before,&::after{
+    content:" ";
+    display: table;
+  }
+  &::after{
+    clear: both;
+  }
+}
+%clearfix{
+  @include clearfix ;
+}
+.clearfix{
+  @extend %clearfix;
+}

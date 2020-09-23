@@ -7,6 +7,7 @@ import RequestForm from './RequestForm';
 class App extends React.Component {
     constructor(props) {
         super(props);
+        {/* Используем подъем состояния для общения между FilterBlock и PositionsList */}
         this.state = {
             description: "",
             type: "",

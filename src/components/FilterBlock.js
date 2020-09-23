@@ -20,6 +20,7 @@ class FilterBlock extends React.Component {
                     <select value={this.state.type} onChange={this.handleTypeChange}>
                         <option value="not selected" disabled defaultValue hidden>Not selected</option>
                         <option value="Full time">Full time</option>
+                        <option value="Contract">Contract</option> {/* Есть на 1 стр. C#*/}
                         <option value="Half time">Half time</option>
                         <option value="Part time">Part time</option>
                     </select>
@@ -29,9 +30,10 @@ class FilterBlock extends React.Component {
                     <input type="text" placeholder="Unspecified" value={this.state.position} onChange={this.handlePositionChange} onKeyPress={this.handleKeyPress}></input>
                 </div>
                 <div className="clearType">
-                    <button id="clear-btn" onClick={this.handleClearClick} className="lightBtn">
+                    <button id="clear-btn" onClick={this.handleClearClick} className="lightBtn"
+                    style={this.state.type !== "not selected" ? {"color": "#000"} : {"color": "#A3A6A9"}}>
                         Clear sorting
-                        <img></img>
+                        <img src={this.state.type !== "not selected" ? require("./../static/clear.png") : require("./../static/clear-disable.png")} alt="clearType"></img>
                     </button>
                 </div>
             </div>
@@ -52,7 +54,6 @@ class FilterBlock extends React.Component {
     handleKeyPress = (event) => {
         if(event.key === 'Enter'){
             this.props.onPositionChange(this.state.position);
-            console.log('enter')
         }
     }
 }

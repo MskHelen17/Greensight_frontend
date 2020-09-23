@@ -14,7 +14,7 @@ class Position extends React.Component {
             return(
                 <div className="position">
                     <div className="leftColumn">
-                        <img src={position.company_logo}/>
+                        <img src={position.company_logo} alt={position.title + "_logo"}/>
                         <p><span>Form: </span>{position.type}</p>
                         <p><span>Company: </span>{position.company}</p>
                         <p><span>Web: </span>{position.company_url}</p>
@@ -29,7 +29,7 @@ class Position extends React.Component {
             )
         }
         else {
-            return(<div></div>)
+            return null
         }
     }
     handleMoreClick(event){
